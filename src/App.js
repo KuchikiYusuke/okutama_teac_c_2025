@@ -1,16 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-import * as sound from "./logic/sound"
-
+import React from "react"
+import * as game from "./logic/game"
 
 function App() {
   const handleStartButtonPress = () => {
-    sound.initSounds()
-    sound.loopMainMusic()
+    setActive(true)
+    game.newGame()
+    game.start()
   }
+  const handleBubbleButtonPress = () => {
+    game.handleBubble()
+  }
+  const [active, setActive] = React.useState(false)
   return (
     <div className="App">
       <button onClick={handleStartButtonPress}>Start</button>
+      <button disabled={!active} onClick={handleBubbleButtonPress}>Bubble!</button>
     </div>
   );
 }
