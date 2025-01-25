@@ -10,7 +10,7 @@ let currentPhase = "playback"
 // let onAfterTick = null
 
 // export function initSounds(onBeforeTickFn, onAfterTickFn) {
-  export function initSounds() {
+export function initSounds() {
   if(initialized) {
     return
   }
