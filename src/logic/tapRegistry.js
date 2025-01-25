@@ -2,7 +2,7 @@ const DIFF = 500;
 const tapRegistry = []
 let tapRegistryIndex = 0;
 
-export function tap(time, index) {
+export function register(time, index) {
   console.log("index: " + index)
   console.log("tapRegistry.length: " + tapRegistry.length)
   if (index === tapRegistry.length) {

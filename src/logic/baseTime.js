@@ -8,6 +8,6 @@ export function getBaseTIme() {
   return baseTime;
 }
 
-export function getElapsedTimeInLoop() {
+export function getElapsedTime() {
   return Date.now() - baseTime;
 }
