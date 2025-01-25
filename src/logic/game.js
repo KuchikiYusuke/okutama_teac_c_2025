@@ -1,7 +1,8 @@
 import * as sound from "./sound"
 import * as baseTime from "./baseTime";
-import * as tap from "./tap";
+import * as judgeTap from "./judgeTap";
 import * as phase from "./phase";
+import * as registerTap from "./registerTap";
 
 let currentPattern = []
 // let phase = "playback"
@@ -65,5 +66,9 @@ export function handleBubble() {
   //   return
   // }
   sound.playBubbleSound()
-  tap.tap(baseTime.getElapsedTimeInLoop())
+  if (phase.getPhase() === phase.IMITATION) {
+    registerTap.judge(baseTime.getElapsedTimeInLoop(), registerTap.getTapRegistry()[phase.getPresentImitationNum()])
+  } else {
+    registerTap.tap(baseTime.getElapsedTimeInLoop(), phase.getPresentImitationNum());
+  }
 }
