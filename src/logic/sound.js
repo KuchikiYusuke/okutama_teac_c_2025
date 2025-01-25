@@ -10,7 +10,7 @@ let currentPhase = "playback"
 // let onAfterTick = null
 
 // export function initSounds(onBeforeTickFn, onAfterTickFn) {
-export function initSounds() {
+export function initSounds(onSwitchingFn, setPhase) {
   if(initialized) {
     return
   }
@@ -27,6 +27,9 @@ export function initSounds() {
     // musicTick()
     // setInterval(musicTick, 500)
     ticking = true;
+  })
+  howlMap["music"].on("end", () => {
+    onSwitchingFn(setPhase);
   })
   howlMap["beep"] = new Howl({
     src: [process.env.PUBLIC_URL + "sounds/beep.wav"],

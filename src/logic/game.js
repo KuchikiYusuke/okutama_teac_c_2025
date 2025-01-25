@@ -1,13 +1,14 @@
 import * as sound from "./sound"
 import * as baseTime from "./baseTime";
 import * as tap from "./tap";
+import * as phase from "./phase";
 
 let currentPattern = []
 // let phase = "playback"
 
-export function newGame() {
+export function newGame(setPhase) {
   // sound.initSounds(onBeforeTick, onAfterTick)
-  sound.initSounds()
+  sound.initSounds(phase.handlePhase, setPhase)
   baseTime.resetBaseTime()
 }
 
