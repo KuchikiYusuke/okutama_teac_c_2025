@@ -1,10 +1,8 @@
-const DIFF = 500;
+const DIFF = 100;
 const tapRegistry = []
 let tapRegistryIndex = 0;
 
 export function register(time, index) {
-  console.log("index: " + index)
-  console.log("tapRegistry.length: " + tapRegistry.length)
   if (index === tapRegistry.length) {
     tapRegistry.push([]);
   } 
@@ -20,15 +18,11 @@ export function getTapRegistryIndex() {
   return tapRegistryIndex;
 }
 
-export function judge(elapsedTimeInLoop, registeredTimeArray) {
-  registeredTimeArray.forEach(
-    (registeredTime) => {
-      console.log(elapsedTimeInLoop - registeredTime);
-      console.log(Math.abs(elapsedTimeInLoop - registeredTime) < DIFF);
-      if (Math.abs(elapsedTimeInLoop - registeredTime) < DIFF) {
-        return true
-      } 
+export function judge(elapsedTime, registeredTimeArray) {
+  for (let i = 0; i < registeredTimeArray.length; i++) {
+    if (Math.abs(elapsedTime - registeredTimeArray[i]) < DIFF) {
+      return true
     }
-  );
+  }
   return false
 }

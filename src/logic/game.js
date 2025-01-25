@@ -8,8 +8,7 @@ let currentPattern = []
 
 export function newGame(setPhase) {
   // sound.initSounds(onBeforeTick, onAfterTick)
-  sound.initSounds(phase.handlePhase, setPhase)
-  baseTime.resetBaseTime()
+  sound.initSounds(phase.handlePhase, setPhase, baseTime.resetBaseTime)
 }
 
 export function start() {
@@ -17,7 +16,6 @@ export function start() {
   sound.syncPattern(currentPattern)
   // moveToPlaybackPhase()
   sound.loopMainMusic()
-  baseTime.resetBaseTime()
 }
 
 export function generatePattern() {
@@ -60,13 +58,13 @@ export function generatePattern() {
 //   }
 // }
 
-export function handleBubble() {
+export function handleBubble(setIsRightTap) {
   // if(phase !== "input") {
   //   return
   // }
   sound.playBubbleSound()
   if (phase.getPhase() === phase.IMITATION) {
-    tapRegistry.judge(baseTime.getElapsedTime(), tapRegistry.getTapRegistry()[phase.getPresentImitationNum()])
+    setIsRightTap(tapRegistry.judge(baseTime.getElapsedTime(), tapRegistry.getTapRegistry()[phase.getPresentImitationNum()]));
   } else {
     tapRegistry.register(baseTime.getElapsedTime(), phase.getPresentImitationNum());
   }

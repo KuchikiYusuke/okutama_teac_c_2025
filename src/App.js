@@ -10,16 +10,18 @@ function App() {
     game.start()
   }
   const handleBubbleButtonPress = () => {
-    game.handleBubble()
+    game.handleBubble(setIsRightTap)
   }
   const [active, setActive] = React.useState(false)
   const [phase, setPhase] = React.useState("register")
+  const [isRightTap, setIsRightTap] = React.useState();
 
   return (
     <div className="App">
       <button onClick={handleStartButtonPress}>Start</button>
       <button disabled={!active} onClick={() => handleBubbleButtonPress(setPhase)}>Bubble!</button>
       {<>{phase}</>}
+      <div>{isRightTap === undefined ? <></> : isRightTap? <>正解</> : <>外れ</>}</div>
     </div>
   );
 }
