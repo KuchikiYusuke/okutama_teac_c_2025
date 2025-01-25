@@ -17,7 +17,7 @@ export function initSounds(handlePhase, setPhase, resetBaseTime, isMusicPause) {
   // onBeforeTick = onBeforeTickFn
   // onAfterTick = onAfterTickFn
   howlMap["music"] = new Howl({
-    src: [process.env.PUBLIC_URL + "sounds/bgm1.wav"],
+    src: [process.env.PUBLIC_URL + "sounds/ggj2025_teamc_bgm_1.wav"],
     loop: true,
   });
   howlMap["music"].on("play", () => {
@@ -39,7 +39,7 @@ export function initSounds(handlePhase, setPhase, resetBaseTime, isMusicPause) {
     src: [process.env.PUBLIC_URL + "sounds/beep.wav"],
   })
   howlMap["bubble"] = new Howl({
-    src: [process.env.PUBLIC_URL + "sounds/bubble.wav"],
+    src: [process.env.PUBLIC_URL + "sounds/se_bubble_01.wav"],
   })
 
   initialized = true
