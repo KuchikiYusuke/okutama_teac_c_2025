@@ -1,4 +1,6 @@
 import * as sound from "./sound"
+import * as baseTime from "./baseTime";
+import * as tap from "./tap";
 
 let currentPattern = []
 // let phase = "playback"
@@ -6,6 +8,7 @@ let currentPattern = []
 export function newGame() {
   // sound.initSounds(onBeforeTick, onAfterTick)
   sound.initSounds()
+  baseTime.resetBaseTime()
 }
 
 export function start() {
@@ -13,6 +16,7 @@ export function start() {
   sound.syncPattern(currentPattern)
   // moveToPlaybackPhase()
   sound.loopMainMusic()
+  baseTime.resetBaseTime()
 }
 
 export function generatePattern() {
@@ -60,4 +64,5 @@ export function handleBubble() {
   //   return
   // }
   sound.playBubbleSound()
+  tap.tap(baseTime.getElapsedTimeInLoop())
 }
