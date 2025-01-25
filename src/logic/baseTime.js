@@ -4,10 +4,6 @@ export function resetBaseTime() {
   console.log("basetime: " + baseTime);
 }
 
-export function getBaseTIme() {
-  return baseTime;
-}
-
 export function getElapsedTime() {
   return Date.now() - baseTime;
 }
