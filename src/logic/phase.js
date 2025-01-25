@@ -9,6 +9,10 @@ export function getPhase() {
   return phase;
 }
 
+export function getIsFirstImitaionPhase() {
+  return phase === IMITATION && presentImitationNum === 0
+}
+
 export function handlePhase(setPhase) {
   console.log("presentImitationNum: " + presentImitationNum)
   if (phase === IMITATION) {
@@ -23,7 +27,7 @@ export function handlePhase(setPhase) {
     phase = IMITATION
     presentImitationNum = 0;
     imitationNum += 1;
-    setPhase(phase)
+    setPhase(phase);
   }
   console.log(phase);
 }

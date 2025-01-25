@@ -8,7 +8,7 @@ let currentPattern = []
 
 export function newGame(setPhase) {
   // sound.initSounds(onBeforeTick, onAfterTick)
-  sound.initSounds(phase.handlePhase, setPhase, baseTime.resetBaseTime)
+  sound.initSounds(phase.handlePhase, setPhase, baseTime.resetBaseTime, phase.getIsFirstImitaionPhase)
 }
 
 export function start() {

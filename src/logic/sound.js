@@ -10,7 +10,7 @@ let currentPhase = "playback"
 // let onAfterTick = null
 
 // export function initSounds(onBeforeTickFn, onAfterTickFn) {
-export function initSounds(handlePhase, setPhase, resetBaseTime) {
+export function initSounds(handlePhase, setPhase, resetBaseTime, isMusicPause) {
   if(initialized) {
     return
   }
@@ -33,6 +33,7 @@ export function initSounds(handlePhase, setPhase, resetBaseTime) {
   howlMap["music"].on("end", () => {
     handlePhase(setPhase);
     resetBaseTime();
+    isMusicPause() && howlMap["music"].pause();
   })
   howlMap["beep"] = new Howl({
     src: [process.env.PUBLIC_URL + "sounds/beep.wav"],
