@@ -22,7 +22,11 @@ function App() {
   return (
     <div className="App">
       {active === "opening" && <>
-        <img className='family-image' src={process.env.PUBLIC_URL + "/art/horaimori_family.png"}></img>
+        <img
+          className='family-image'
+          src={process.env.PUBLIC_URL + "/art/horaimori_family.png"}
+          alt="ホライモリの家族 logo: オレンジ色の背景に、ゲームタイトルと、大きく口を開けた登場キャラクターが並ぶ。左上に紫色、左下に青緑色、中央に緑色、右に赤色。"
+        />
         <button onClick={handleStartButtonPress}>Game Start</button>
       </>}
       {(active === "active" || active === "pause") && <>
