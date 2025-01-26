@@ -11,6 +11,7 @@ function App() {
     setActive("active")
     game.newGame(setPhase, setActive, setUraimoriIndex)
     game.start()
+    setIsInitialized(true)
   }
   const handleBubbleButtonPress = () => {
     game.handleBubble(setIsRightTap, addMistakeNum)
@@ -26,13 +27,12 @@ function App() {
   const [isRightTap, setIsRightTap] = React.useState();
   const [uraimoriIndex, setUraimoriIndex] = React.useState(3);
   const [mistakeNum, setMistakeNum] = React.useState(0);
+  const [isInitialized, setIsInitialized] = React.useState(false);
 
   React.useEffect(() => {
-    if (isRightTap === false) {
-      const tmpMistakeNum = mistakeNum + 1
-      setMistakeNum(tmpMistakeNum)
-    }
-  }, [isRightTap])
+    console.log(`uraimoriIndex === 3: ${uraimoriIndex === 3}`)
+    if (uraimoriIndex === 3 && isInitialized) setActive("end")
+  }, [uraimoriIndex])
 
   function addMistakeNum() {
     const tmpMistakeNum = mistakeNum + 1
@@ -84,6 +84,18 @@ function App() {
           <img className='bg-image' src={process.env.PUBLIC_URL + "art/background.png"}></img>
           <img className='bg-image' src={process.env.PUBLIC_URL + "art/pause.png"}></img>
           <span className='mistake-number'>{mistakeNum}</span>
+        </div>
+
+        {/* <button onClick={handlePlayButtonPress}>Start</button>
+        <button disabled={active !== "active"} onClick={() => handleBubbleButtonPress(setPhase)}>Bubble!</button>
+        {<>{phase}</>}
+        <div>{isRightTap === undefined ? <></> : isRightTap? <>正解</> : <>外れ</>}</div> */}
+      </>}
+      {(active === "end") && <>
+        <div className='image-wrapper'>
+          <img className='bg-image' src={process.env.PUBLIC_URL + "art/background.png"}></img>
+          <img className='bg-image' src={process.env.PUBLIC_URL + "art/endscreen.png"}></img>
+          <span className='mistake-number-ending'>{mistakeNum}</span>
         </div>
 
         {/* <button onClick={handlePlayButtonPress}>Start</button>
