@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       {active === "opening" && <>
-        <img className='family-image' src={process.env.PUBLIC_URL + "images/horaimori_family.png"}></img>
+        <img className='family-image' src={process.env.PUBLIC_URL + "art/horaimori_family.png"}></img>
         <button onClick={handleStartButtonPress}>Game Start</button>
       </>}
       {(active === "active" || active === "pause") && <>
