@@ -58,7 +58,7 @@ export function generatePattern() {
 //   }
 // }
 
-export function handleBubble(setIsRightTap) {
+export function handleBubble(setIsRightTap, addMistakeNum) {
   // if(phase !== "input") {
   //   return
   // }
@@ -69,6 +69,7 @@ export function handleBubble(setIsRightTap) {
       sound.playOKSound()
     } else {
       sound.playNGSound()
+      addMistakeNum()
     }
     setIsRightTap(isJudgeOK);
   } else {

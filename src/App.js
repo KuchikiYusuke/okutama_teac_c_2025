@@ -13,7 +13,7 @@ function App() {
     game.start()
   }
   const handleBubbleButtonPress = () => {
-    game.handleBubble(setIsRightTap)
+    game.handleBubble(setIsRightTap, addMistakeNum)
     setIsOpenMouse(true)
     setTimeout(() => {
       setIsOpenMouse(false);
@@ -30,9 +30,14 @@ function App() {
   React.useEffect(() => {
     if (isRightTap === false) {
       const tmpMistakeNum = mistakeNum + 1
-      setMistakeNum(tmpMistakeNum)  
+      setMistakeNum(tmpMistakeNum)
     }
   }, [isRightTap])
+
+  function addMistakeNum() {
+    const tmpMistakeNum = mistakeNum + 1
+    setMistakeNum(tmpMistakeNum)
+  }
  
   return (
     <div className="App">
