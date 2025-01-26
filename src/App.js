@@ -51,7 +51,7 @@ function App() {
       </div>}
       {active === "active" && <>
         <div className='image-wrapper' onClick={() => handleBubbleButtonPress(setPhase)}>
-          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/background.png"}></img>
+          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/background.png"} alt=""></img>
           {
             uraimoriIndex === 0 && <span className='character1'>
             {isOpenMouse && <img className='character1-openmouse' src={process.env.PUBLIC_URL + "/art/char1_frame2.png"}></img>}
@@ -81,7 +81,7 @@ function App() {
       </>}
       {(active === "pause") && <>
         <div className='image-wrapper'  onClick={handlePlayButtonPress}>
-          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/background.png"}></img>
+          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/background.png"} alt=""></img>
           <img className='bg-image' src={process.env.PUBLIC_URL + "/art/pause.png"}></img>
           <span className='mistake-number'>{mistakeNum}</span>
         </div>
@@ -93,7 +93,7 @@ function App() {
       </>}
       {(active === "end") && <>
         <div className='image-wrapper'>
-          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/background.png"}></img>
+          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/background.png"} alt=""></img>
           <img className='bg-image' src={process.env.PUBLIC_URL + "/art/endscreen.png"}></img>
           <span className='mistake-number-ending'>{mistakeNum}</span>
         </div>
