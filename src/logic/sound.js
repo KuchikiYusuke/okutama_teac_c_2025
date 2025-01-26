@@ -10,7 +10,7 @@ let currentPhase = "playback"
 // let onAfterTick = null
 
 // export function initSounds(onBeforeTickFn, onAfterTickFn) {
-export function initSounds(handlePhase, setPhase, resetBaseTime, isMusicPause, setActive) {
+export function initSounds(handlePhase, setPhase, resetBaseTime, isMusicPause, setActive, setUraimoriIndex) {
   if(initialized) {
     return
   }
@@ -31,7 +31,7 @@ export function initSounds(handlePhase, setPhase, resetBaseTime, isMusicPause, s
     ticking = true;
   })
   howlMap["music"].on("end", () => {
-    handlePhase(setPhase);
+    handlePhase(setPhase, setUraimoriIndex);
     resetBaseTime();
     isMusicPause() && howlMap["music"].pause();
     isMusicPause() && setActive("pause");

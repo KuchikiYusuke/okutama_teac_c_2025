@@ -2,6 +2,70 @@
   text-align: center;
 }
 
+.opening-image-wrapper {
+  width: 100%;
+}
+
 .family-image {
   width: 100%;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3213 / 2074;
+}
+
+.bg-image {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.character1-openmouse {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.character2-openmouse {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.character3-openmouse {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.character4-openmouse {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.mistake-number {
+  position: absolute;
+  top: 16.5%;
+  right: 31.5%;
+  transform: translateY(-50%);
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.mistake-number-ending {
+  position: absolute;
+  top: 113%;
+  right: 31.3%;
+  font-size: 7.3vw;
+  color: #d25d38;
 }

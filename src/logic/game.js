@@ -6,9 +6,9 @@ import * as tapRegistry from "./tapRegistry";
 let currentPattern = []
 // let phase = "playback"
 
-export function newGame(setPhase, setActive) {
+export function newGame(setPhase, setActive, setUraimoriIndex) {
   // sound.initSounds(onBeforeTick, onAfterTick)
-  sound.initSounds(phase.handlePhase, setPhase, baseTime.resetBaseTime, phase.getIsFirstImitaionPhase, setActive)
+  sound.initSounds(phase.handlePhase, setPhase, baseTime.resetBaseTime, phase.getIsFirstImitaionPhase, setActive, setUraimoriIndex)
 }
 
 export function start() {
@@ -58,7 +58,7 @@ export function generatePattern() {
 //   }
 // }
 
-export function handleBubble(setIsRightTap) {
+export function handleBubble(setIsRightTap, addMistakeNum) {
   // if(phase !== "input") {
   //   return
   // }
@@ -69,6 +69,7 @@ export function handleBubble(setIsRightTap) {
       sound.playOKSound()
     } else {
       sound.playNGSound()
+      addMistakeNum()
     }
     setIsRightTap(isJudgeOK);
   } else {
