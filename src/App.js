@@ -24,7 +24,7 @@ function App() {
   const [phase, setPhase] = React.useState("register")
   const [isOpenMouse, setIsOpenMouse] = React.useState(false) 
   const [isRightTap, setIsRightTap] = React.useState();
-  const [uraimoriIndex, setUraimoriIndex] = React.useState();
+  const [uraimoriIndex, setUraimoriIndex] = React.useState(4);
 
   return (
     <div className="App">
