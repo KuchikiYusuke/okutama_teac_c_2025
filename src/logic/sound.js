@@ -93,11 +93,13 @@ export function syncPhase(phase) {
 
 export function playOKSound() {
   const howl = howlMap["OK"];
-  howl.play();
+  const id = howl.play();
+  howl.rate(0.9 + Math.random() * 0.2, id)
 }
 
 export function playNGSound() {
   const howl = howlMap["NG"];
-  howl.play();
+  const id = howl.play();
+  howl.rate(0.9 + Math.random() * 0.2, id)
 }
 
