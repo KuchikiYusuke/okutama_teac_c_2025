@@ -42,6 +42,12 @@ export function initSounds(handlePhase, setPhase, resetBaseTime, isMusicPause, s
   howlMap["bubble"] = new Howl({
     src: [process.env.PUBLIC_URL + "/sounds/se_bubble_01.wav"],
   })
+  howlMap["OK"] = new Howl({
+    src: [process.env.PUBLIC_URL + "/sounds/voice_success_01.wav"],
+  })
+  howlMap["NG"] = new Howl({
+    src: [process.env.PUBLIC_URL + "/sounds/voice_failed_01.wav"],
+  })
 
   initialized = true
 }
@@ -84,3 +90,14 @@ export function syncPhase(phase) {
   currentPhase = phase
   currentTick = 0
 }
+
+export function playOKSound() {
+  const howl = howlMap["OK"];
+  howl.play();
+}
+
+export function playNGSound() {
+  const howl = howlMap["NG"];
+  howl.play();
+}
+

@@ -64,7 +64,13 @@ export function handleBubble(setIsRightTap) {
   // }
   sound.playBubbleSound()
   if (phase.getPhase() === phase.IMITATION) {
-    setIsRightTap(tapRegistry.judge(baseTime.getElapsedTime(), tapRegistry.getTapRegistry()[phase.getPresentImitationNum()]));
+    const isJudgeOK = tapRegistry.judge(baseTime.getElapsedTime(), tapRegistry.getTapRegistry()[phase.getPresentImitationNum()])
+    if(isJudgeOK) {
+      sound.playOKSound()
+    } else {
+      sound.playNGSound()
+    }
+    setIsRightTap(isJudgeOK);
   } else {
     tapRegistry.register(baseTime.getElapsedTime(), phase.getPresentImitationNum());
   }
