@@ -35,7 +35,12 @@ export function initSounds(handlePhase, setPhase, resetBaseTime, isMusicPause, s
     resetBaseTime();
     isMusicPause() && howlMap["music"].pause();
     isMusicPause() && setActive("pause");
+    isMusicPause() && startPauseMusic()
   })
+  howlMap["pause"] = new Howl({
+    src: [process.env.PUBLIC_URL + "/sounds/ggj2025_teamc_bgm_3.wav"],
+    loop: true,
+  });
   howlMap["beep"] = new Howl({
     src: [process.env.PUBLIC_URL + "/sounds/beep.wav"],
   })
@@ -46,13 +51,14 @@ export function initSounds(handlePhase, setPhase, resetBaseTime, isMusicPause, s
     src: [process.env.PUBLIC_URL + "/sounds/voice_success_01.wav"],
   })
   howlMap["NG"] = new Howl({
-    src: [process.env.PUBLIC_URL + "/sounds/voice_failed_01.wav"],
+    src: [process.env.PUBLIC_URL + "/sounds/voice_failed_02.wav"],
   })
 
   initialized = true
 }
 
 export function loopMainMusic() {
+  howlMap["pause"].stop()
   howlMap["music"].play()
 }
 
@@ -103,3 +109,9 @@ export function playNGSound() {
   howl.rate(0.9 + Math.random() * 0.2, id)
 }
 
+function startPauseMusic() {
+  const howl = howlMap["pause"]
+  howl.volume(0)
+  howl.play()
+  howl.fade(0, 1,50)
+}
