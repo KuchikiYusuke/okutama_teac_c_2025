@@ -6,9 +6,9 @@ import * as tapRegistry from "./tapRegistry";
 let currentPattern = []
 // let phase = "playback"
 
-export function newGame(setPhase) {
+export function newGame(setPhase, setActive) {
   // sound.initSounds(onBeforeTick, onAfterTick)
-  sound.initSounds(phase.handlePhase, setPhase, baseTime.resetBaseTime, phase.getIsFirstImitaionPhase)
+  sound.initSounds(phase.handlePhase, setPhase, baseTime.resetBaseTime, phase.getIsFirstImitaionPhase, setActive)
 }
 
 export function start() {
