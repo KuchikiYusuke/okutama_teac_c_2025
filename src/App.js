@@ -81,8 +81,8 @@ function App() {
       </>}
       {(active === "pause") && <>
         <div className='image-wrapper'  onClick={handlePlayButtonPress}>
-          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/background.png"} alt=""></img>
-          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/pause.png"}></img>
+          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/background.png"} alt="森の背景"></img>
+          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/pause.png"} alt="Next Turn"></img>
           <span className='mistake-number'>{mistakeNum}</span>
         </div>
 
@@ -94,7 +94,7 @@ function App() {
       {(active === "end") && <>
         <div className='image-wrapper'>
           <img className='bg-image' src={process.env.PUBLIC_URL + "/art/background.png"} alt=""></img>
-          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/endscreen.png"}></img>
+          <img className='bg-image' src={process.env.PUBLIC_URL + "/art/endscreen.png"} alt="End, mistakes:"></img>
           <span className='mistake-number-ending'>{mistakeNum}</span>
         </div>
 
