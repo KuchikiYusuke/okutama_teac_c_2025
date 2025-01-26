@@ -34,6 +34,24 @@ function App() {
     if (uraimoriIndex === 3 && isInitialized) setActive("end")
   }, [uraimoriIndex])
 
+  React.useEffect(() => {
+    const preloadImage = (url) => {
+      const img = new Image();
+      img.src = url; // この時点で画像がダウンロードされる
+    };
+
+    // プリロードする画像のリスト
+    const images = [
+      process.env.PUBLIC_URL + "/art/char1_frame2.png",
+      process.env.PUBLIC_URL + "/art/char2_frame2.png",
+      process.env.PUBLIC_URL + "/art/char3_frame2.png",
+      process.env.PUBLIC_URL + "/art/char4_frame2.png",
+      process.env.PUBLIC_URL + "/art/endscreen.png",
+    ];
+
+    images.forEach(preloadImage);
+  }, [])
+
   function addMistakeNum() {
     const tmpMistakeNum = mistakeNum + 1
     setMistakeNum(tmpMistakeNum)
