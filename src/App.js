@@ -36,14 +36,14 @@ function App() {
  
   return (
     <div className="App">
-      {active === "opening" && <>
+      {active === "opening" && <div className='opening-image-wrapper' onClick={handleStartButtonPress}>
         <img
           className='family-image'
-          src={process.env.PUBLIC_URL + "/art/horaimori_family.png"}
+          src={process.env.PUBLIC_URL + "/art/titleUi.png"}
           alt="ホライモリの家族 logo: オレンジ色の背景に、ゲームタイトルと、大きく口を開けたイモリのキャラクターが並ぶ。左上に紫色、左下に青緑色、中央に緑色、右に赤色。"
         />
-        <button onClick={handleStartButtonPress}>Game Start</button>
-      </>}
+        {/* <button onClick={handleStartButtonPress}>Game Start</button> */}
+      </div>}
       {active === "active" && <>
         <div className='image-wrapper' onClick={() => handleBubbleButtonPress(setPhase)}>
           <img className='bg-image' src={process.env.PUBLIC_URL + "art/background.png"}></img>
