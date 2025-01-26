@@ -34,7 +34,7 @@ export function initSounds(handlePhase, setPhase, resetBaseTime, isMusicPause, s
     handlePhase(setPhase);
     resetBaseTime();
     isMusicPause() && howlMap["music"].pause();
-    isMusicPause() && setActive();
+    isMusicPause() && setActive("pause");
   })
   howlMap["beep"] = new Howl({
     src: [process.env.PUBLIC_URL + "sounds/beep.wav"],
