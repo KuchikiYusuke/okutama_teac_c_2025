@@ -47,3 +47,13 @@
   top: 0;
   left: 0;
 }
+
+.mistake-number {
+  position: absolute;
+  top: 16.5%;
+  right: 31.5%;
+  transform: translateY(-50%);
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: bold;
+}

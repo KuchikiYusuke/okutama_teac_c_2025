@@ -24,8 +24,16 @@ function App() {
   const [phase, setPhase] = React.useState("register")
   const [isOpenMouse, setIsOpenMouse] = React.useState(false) 
   const [isRightTap, setIsRightTap] = React.useState();
-  const [uraimoriIndex, setUraimoriIndex] = React.useState(4);
+  const [uraimoriIndex, setUraimoriIndex] = React.useState(3);
+  const [mistakeNum, setMistakeNum] = React.useState(0);
 
+  React.useEffect(() => {
+    if (isRightTap === false) {
+      const tmpMistakeNum = mistakeNum + 1
+      setMistakeNum(tmpMistakeNum)  
+    }
+  }, [isRightTap])
+ 
   return (
     <div className="App">
       {active === "opening" && <>
@@ -63,6 +71,7 @@ function App() {
             {!isOpenMouse && <img className='character4-openmouse' src={process.env.PUBLIC_URL + "art/char4_frame1.png"}></img>}
           </span>
           }
+          <span className='mistake-number'>{mistakeNum}</span>
         </div>
       </>}
       {(active === "pause") && <>
