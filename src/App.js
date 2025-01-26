@@ -77,6 +77,8 @@ function App() {
       {(active === "pause") && <>
         <div className='image-wrapper'  onClick={handlePlayButtonPress}>
           <img className='bg-image' src={process.env.PUBLIC_URL + "art/background.png"}></img>
+          <img className='bg-image' src={process.env.PUBLIC_URL + "art/pause.png"}></img>
+          <span className='mistake-number'>{mistakeNum}</span>
         </div>
 
         {/* <button onClick={handlePlayButtonPress}>Start</button>
